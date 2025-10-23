@@ -61,15 +61,35 @@ def predict_single():
                   'transaction_type': trans_type, 'distance_km': distance_km,
                   'device_loc_risk': device_loc_risk, 'merchant_type': merchant,
                   'hour_of_day': hour_of_day}
+    # Manual suspicious input check
+    suspicious = False
+    suspicious_reasons = []
+    if amount > 20000:
+        suspicious = True
+        suspicious_reasons.append("High amount")
+    if frequency > 10:
+        suspicious = True
+        suspicious_reasons.append("Many transactions in 24h")
+    if distance_km > 100:
+        suspicious = True
+        suspicious_reasons.append("Large distance")
+    if merchant in ["Electronics", "Travel", "Online Shopping"]:
+        suspicious = True
+        suspicious_reasons.append("High-risk merchant")
+    if hour_of_day < 6 or hour_of_day > 22:
+        suspicious = True
+        suspicious_reasons.append("Unusual hour")
     df_demo = demo_mapper(user_input, demo_feature_stats)
     df_demo[['Time','Amount']] = scaler.transform(df_demo[['Time','Amount']])
     prob = float(model.predict_proba(df_demo[['Time'] + [f'V{i}' for i in range(1,29)] + ['Amount']])[0,1])
-    label = "High Fraud Risk" if prob >= 0.6 else "Low Fraud Risk"
+    label = "High Fraud Risk" if prob >= 0.4 or suspicious else "Low Fraud Risk"
     advice = ""
     if prob >= 0.85:
         advice = "Block and contact bank."
-    elif prob >= 0.6:
+    elif prob >= 0.4 or suspicious:
         advice = "Review and confirm."
+        if suspicious:
+            advice += " (Suspicious input: " + ", ".join(suspicious_reasons) + ")"
     else:
         advice = "Looks normal."
     return render_template('index.html', result=label, probability=f"{prob*100:.2f}%", advice=advice, form_data=request.form)
