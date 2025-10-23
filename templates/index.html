@@ -10,13 +10,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary-color: #6366f1;
-      --primary-light: #818cf8;
-      --primary-dark: #4f46e5;
-      --secondary-color: #ec4899;
-      --secondary-light: #f472b6;
+      --primary-color: #0ea5e9;
+      --primary-light: #38bdf8;
+      --primary-dark: #0284c7;
+      --secondary-color: #14b8a6;
+      --secondary-light: #2dd4bf;
       --danger-color: #ef4444;
-      --success-color: #10b981;
+      --success-color: #22c55e;
       --warning-color: #f59e0b;
       --glass-bg: rgba(255, 255, 255, 0.15);
       --glass-border: rgba(255, 255, 255, 0.25);
@@ -31,7 +31,7 @@
     body {
       font-family: 'Poppins', sans-serif;
       min-height: 100vh;
-      background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #4facfe);
+      background: linear-gradient(-45deg, #0ea5e9, #06b6d4, #14b8a6, #10b981);
       background-size: 400% 400%;
       animation: gradientShift 15s ease infinite;
       position: relative;
@@ -83,9 +83,9 @@
     }
 
     .main-container {
-      max-width: 1400px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 2rem 1rem;
+      padding: 1.5rem 1rem;
       position: relative;
       z-index: 1;
     }
@@ -94,7 +94,7 @@
     .header-section {
       text-align: center;
       color: white;
-      margin-bottom: 3rem;
+      margin-bottom: 1.5rem;
       animation: fadeInDown 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
       position: relative;
     }
@@ -102,14 +102,14 @@
     .header-section::before {
       content: '';
       position: absolute;
-      top: -20px;
+      top: -10px;
       left: 50%;
       transform: translateX(-50%);
-      width: 150px;
-      height: 150px;
+      width: 100px;
+      height: 100px;
       background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
       border-radius: 50%;
-      filter: blur(40px);
+      filter: blur(30px);
       animation: pulse 3s ease-in-out infinite;
     }
 
@@ -120,11 +120,11 @@
 
     .header-section h1 {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 3.5rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-      text-shadow: 0 0 40px rgba(255, 255, 255, 0.5), 0 4px 6px rgba(0, 0, 0, 0.3);
-      letter-spacing: -1px;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.5), 0 3px 5px rgba(0, 0, 0, 0.3);
+      letter-spacing: -0.5px;
       position: relative;
       display: inline-block;
     }
@@ -132,6 +132,7 @@
     .header-section h1 i {
       display: inline-block;
       animation: iconSpin 3s ease-in-out infinite;
+      font-size: 1.8rem;
     }
 
     @keyframes iconSpin {
@@ -140,11 +141,11 @@
     }
 
     .header-section p {
-      font-size: 1.25rem;
+      font-size: 0.95rem;
       opacity: 0.95;
       font-weight: 300;
       text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-      max-width: 700px;
+      max-width: 600px;
       margin: 0 auto;
     }
 
@@ -153,9 +154,9 @@
       background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border-radius: 30px;
+      border-radius: 20px;
       border: 2px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3), 
                   inset 0 1px 0 rgba(255, 255, 255, 0.3);
       overflow: hidden;
       animation: fadeInUp 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -178,10 +179,10 @@
     }
 
     .card-header-custom {
-      background: linear-gradient(135deg, rgba(99, 102, 241, 0.9) 0%, rgba(236, 72, 153, 0.9) 100%);
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.9) 0%, rgba(20, 184, 166, 0.9) 100%);
       backdrop-filter: blur(10px);
       color: white;
-      padding: 2rem 2.5rem;
+      padding: 1.25rem 1.75rem;
       border: none;
       position: relative;
       overflow: hidden;
@@ -207,16 +208,17 @@
       margin: 0;
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
-      font-size: 2rem;
+      font-size: 1.35rem;
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 0.65rem;
       position: relative;
       z-index: 1;
     }
 
     .card-header-custom h3 i {
       animation: iconBounce 2s ease-in-out infinite;
+      font-size: 1.25rem;
     }
 
     @keyframes iconBounce {
@@ -225,25 +227,26 @@
     }
 
     .card-body-custom {
-      padding: 2.5rem;
+      padding: 1.75rem;
       background: rgba(255, 255, 255, 0.05);
     }
 
     .section-title {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.5rem;
+      font-size: 1.1rem;
       font-weight: 700;
       color: white;
-      margin-bottom: 2rem;
+      margin-bottom: 1.25rem;
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.5rem;
       text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     }
 
     .section-title i {
       color: var(--secondary-color);
       animation: rotate 4s linear infinite;
+      font-size: 1rem;
     }
 
     @keyframes rotate {
@@ -255,11 +258,11 @@
     .transaction-type-selector {
       background: rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(10px);
-      border-radius: 20px;
-      padding: 1.75rem;
-      margin-bottom: 2rem;
+      border-radius: 15px;
+      padding: 1.25rem;
+      margin-bottom: 1.25rem;
       border: 2px solid rgba(255, 255, 255, 0.25);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
       transition: all 0.4s ease;
     }
 
@@ -270,16 +273,16 @@
 
     .transaction-type-selector label {
       font-weight: 600;
-      font-size: 1.1rem;
+      font-size: 0.95rem;
       color: white;
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
       display: block;
       text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
 
     .radio-group {
       display: flex;
-      gap: 1.5rem;
+      gap: 1rem;
     }
 
     .radio-option {
@@ -296,17 +299,17 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 1.25rem;
-      border: 3px solid rgba(255, 255, 255, 0.3);
-      border-radius: 15px;
+      padding: 0.85rem;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 12px;
       cursor: pointer;
       transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
       background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(5px);
       font-weight: 600;
-      gap: 0.75rem;
+      gap: 0.5rem;
       color: white;
-      font-size: 1.1rem;
+      font-size: 0.95rem;
       position: relative;
       overflow: hidden;
     }
@@ -327,7 +330,7 @@
     }
 
     .radio-label i {
-      font-size: 1.5rem;
+      font-size: 1.15rem;
       transition: transform 0.3s ease;
     }
 
@@ -335,7 +338,7 @@
       border-color: var(--secondary-color);
       background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
       color: white;
-      box-shadow: 0 8px 25px rgba(236, 72, 153, 0.5),
+      box-shadow: 0 6px 20px rgba(14, 165, 233, 0.5),
                   inset 0 1px 0 rgba(255, 255, 255, 0.3);
       transform: scale(1.05);
     }
@@ -346,24 +349,24 @@
 
     .radio-label:hover {
       border-color: var(--primary-light);
-      transform: translateY(-5px) scale(1.02);
-      box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 8px 24px rgba(14, 165, 233, 0.4);
     }
 
     .form-label {
       font-weight: 600;
       color: white;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.5rem;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      font-size: 0.95rem;
+      gap: 0.4rem;
+      font-size: 0.85rem;
       text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
 
     .input-icon {
       color: var(--secondary-light);
-      font-size: 1rem;
+      font-size: 0.85rem;
       animation: iconFloat 3s ease-in-out infinite;
     }
 
@@ -375,14 +378,14 @@
     /* Premium Input Fields */
     .form-control, .form-select {
       border: 2px solid rgba(255, 255, 255, 0.3);
-      border-radius: 15px;
-      padding: 1rem 1.25rem;
+      border-radius: 12px;
+      padding: 0.65rem 0.95rem;
       transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      font-size: 1rem;
+      font-size: 0.9rem;
       font-weight: 500;
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(10px);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
       color: #1f2937;
     }
 
@@ -393,36 +396,36 @@
 
     .form-control:focus, .form-select:focus {
       border-color: var(--secondary-color);
-      box-shadow: 0 0 0 4px rgba(236, 72, 153, 0.2),
-                  0 8px 20px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.2),
+                  0 6px 16px rgba(0, 0, 0, 0.15);
       outline: none;
-      transform: translateY(-2px);
+      transform: translateY(-1px);
       background: white;
     }
 
     .form-control:hover, .form-select:hover {
       border-color: var(--primary-light);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
     }
 
     /* Premium Analyze Button */
     .btn-analyze {
       background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
       border: none;
-      padding: 1.25rem 3rem;
-      font-size: 1.25rem;
+      padding: 0.85rem 2rem;
+      font-size: 1rem;
       font-weight: 700;
       font-family: 'Space Grotesk', sans-serif;
-      border-radius: 20px;
+      border-radius: 14px;
       transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      box-shadow: 0 10px 30px rgba(99, 102, 241, 0.5),
+      box-shadow: 0 8px 24px rgba(14, 165, 233, 0.5),
                   inset 0 1px 0 rgba(255, 255, 255, 0.3);
       position: relative;
       overflow: hidden;
       color: white;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
     }
 
     .btn-analyze::before {
@@ -459,13 +462,13 @@
     }
 
     .btn-analyze:hover {
-      transform: translateY(-5px) scale(1.02);
-      box-shadow: 0 15px 40px rgba(236, 72, 153, 0.6),
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 12px 32px rgba(20, 184, 166, 0.6),
                   inset 0 1px 0 rgba(255, 255, 255, 0.3);
     }
 
     .btn-analyze:active {
-      transform: translateY(-2px) scale(0.98);
+      transform: translateY(-1px) scale(0.98);
     }
 
     .btn-analyze i,
@@ -482,10 +485,10 @@
 
     /* Premium Result Card with Glassmorphism */
     .result-card {
-      border-radius: 25px;
-      padding: 2rem;
-      margin-top: 2rem;
-      border: 3px solid;
+      border-radius: 18px;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+      border: 2px solid;
       animation: resultSlideIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
       backdrop-filter: blur(20px);
       position: relative;
@@ -522,32 +525,32 @@
     .result-card.high-risk {
       background: linear-gradient(135deg, rgba(239, 68, 68, 0.2) 0%, rgba(220, 38, 38, 0.3) 100%);
       border-color: var(--danger-color);
-      box-shadow: 0 15px 50px rgba(239, 68, 68, 0.4),
+      box-shadow: 0 12px 40px rgba(239, 68, 68, 0.4),
                   inset 0 1px 0 rgba(255, 255, 255, 0.2);
     }
 
     .result-card.low-risk {
-      background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(5, 150, 105, 0.3) 100%);
+      background: linear-gradient(135deg, rgba(34, 197, 94, 0.2) 0%, rgba(22, 163, 74, 0.3) 100%);
       border-color: var(--success-color);
-      box-shadow: 0 15px 50px rgba(16, 185, 129, 0.4),
+      box-shadow: 0 12px 40px rgba(34, 197, 94, 0.4),
                   inset 0 1px 0 rgba(255, 255, 255, 0.2);
     }
 
     .result-title {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 2rem;
+      font-size: 1.5rem;
       font-weight: 800;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 0.75rem;
       position: relative;
       z-index: 1;
       text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     }
 
     .result-title i {
-      font-size: 2.5rem;
+      font-size: 1.75rem;
       animation: resultIcon 1s ease-in-out infinite;
     }
 
@@ -568,9 +571,9 @@
 
     .result-details {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.25rem;
       position: relative;
       z-index: 1;
     }
@@ -578,10 +581,10 @@
     .result-stat {
       background: rgba(255, 255, 255, 0.25);
       backdrop-filter: blur(15px);
-      padding: 1.5rem;
-      border-radius: 20px;
+      padding: 1.15rem;
+      border-radius: 15px;
       border: 2px solid rgba(255, 255, 255, 0.3);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
       transition: all 0.3s ease;
       animation: statFadeIn 0.6s ease-out forwards;
       opacity: 0;
@@ -603,22 +606,22 @@
     }
 
     .result-stat:hover {
-      transform: translateY(-5px) scale(1.05);
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.3);
     }
 
     .result-stat-label {
-      font-size: 0.95rem;
+      font-size: 0.8rem;
       color: rgba(255, 255, 255, 0.8);
       font-weight: 600;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
     }
 
     .result-stat-value {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 2rem;
+      font-size: 1.5rem;
       font-weight: 800;
       color: white;
       text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
@@ -627,12 +630,12 @@
     .result-advice {
       background: rgba(255, 255, 255, 0.25);
       backdrop-filter: blur(15px);
-      padding: 1.5rem;
-      border-radius: 20px;
-      margin-top: 1.5rem;
+      padding: 1.15rem;
+      border-radius: 15px;
+      margin-top: 1.15rem;
       border: 2px solid rgba(255, 255, 255, 0.3);
-      border-left: 5px solid var(--primary-color);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      border-left: 4px solid var(--primary-color);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
       position: relative;
       z-index: 1;
       animation: adviceFadeIn 0.8s ease-out 0.4s forwards;
@@ -648,23 +651,23 @@
     .result-advice strong {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 0.75rem;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
       color: white;
-      font-size: 1.1rem;
+      font-size: 0.95rem;
       font-weight: 700;
     }
 
     .result-advice div {
       color: rgba(255, 255, 255, 0.95);
-      line-height: 1.6;
-      font-size: 1rem;
+      line-height: 1.5;
+      font-size: 0.9rem;
     }
 
     .divider {
-      height: 2px;
+      height: 1px;
       background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-      margin: 3rem 0;
+      margin: 2rem 0;
       position: relative;
     }
 
@@ -674,11 +677,11 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background: rgba(236, 72, 153, 0.3);
+      background: rgba(20, 184, 166, 0.3);
       backdrop-filter: blur(10px);
-      padding: 0.5rem 1rem;
+      padding: 0.4rem 0.85rem;
       border-radius: 50px;
-      font-size: 1.2rem;
+      font-size: 1rem;
       border: 2px solid rgba(255, 255, 255, 0.3);
     }
 
@@ -686,9 +689,9 @@
     .upload-section {
       background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(15px);
-      border-radius: 25px;
-      padding: 2.5rem;
-      border: 3px dashed rgba(255, 255, 255, 0.4);
+      border-radius: 18px;
+      padding: 1.75rem;
+      border: 2px dashed rgba(255, 255, 255, 0.4);
       transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
       position: relative;
       overflow: hidden;
@@ -712,20 +715,20 @@
 
     .upload-section:hover {
       border-color: var(--secondary-color);
-      background: rgba(236, 72, 153, 0.15);
-      transform: translateY(-5px);
-      box-shadow: 0 15px 40px rgba(236, 72, 153, 0.3);
+      background: rgba(20, 184, 166, 0.15);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(20, 184, 166, 0.3);
     }
 
     .upload-title {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.5rem;
+      font-size: 1.15rem;
       font-weight: 700;
       color: white;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.5rem;
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.5rem;
       text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
       position: relative;
       z-index: 1;
@@ -733,18 +736,19 @@
 
     .upload-title i {
       animation: uploadIcon 2s ease-in-out infinite;
+      font-size: 1.1rem;
     }
 
     @keyframes uploadIcon {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
+      50% { transform: translateY(-6px); }
     }
 
     .upload-description {
       color: rgba(255, 255, 255, 0.9);
-      margin-bottom: 2rem;
-      font-size: 1rem;
-      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+      line-height: 1.5;
       position: relative;
       z-index: 1;
     }
@@ -766,15 +770,15 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 1rem;
-      padding: 1.5rem;
+      gap: 0.65rem;
+      padding: 1rem;
       background: rgba(255, 255, 255, 0.95);
-      border: 3px dashed rgba(99, 102, 241, 0.5);
-      border-radius: 18px;
+      border: 2px dashed rgba(14, 165, 233, 0.5);
+      border-radius: 14px;
       cursor: pointer;
       transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
       font-weight: 600;
-      font-size: 1.05rem;
+      font-size: 0.9rem;
       color: #1f2937;
       position: relative;
       overflow: hidden;
@@ -796,7 +800,7 @@
     }
 
     .file-input-label i {
-      font-size: 1.5rem;
+      font-size: 1.15rem;
       color: var(--primary-color);
       transition: transform 0.3s ease;
     }
@@ -805,24 +809,24 @@
       border-color: var(--secondary-color);
       background: white;
       color: var(--primary-color);
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(14, 165, 233, 0.3);
     }
 
     .file-input-label:hover i {
-      transform: scale(1.2) rotate(5deg);
+      transform: scale(1.15) rotate(5deg);
     }
 
     .btn-upload {
       background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
       border: none;
-      padding: 1.125rem 2.5rem;
+      padding: 0.85rem 2rem;
       font-weight: 700;
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.1rem;
-      border-radius: 18px;
+      font-size: 0.95rem;
+      border-radius: 14px;
       transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4),
+      box-shadow: 0 6px 20px rgba(14, 165, 233, 0.4),
                   inset 0 1px 0 rgba(255, 255, 255, 0.3);
       color: white;
       text-transform: uppercase;
@@ -848,26 +852,26 @@
     }
 
     .btn-upload:hover {
-      transform: translateY(-5px) scale(1.02);
-      box-shadow: 0 12px 35px rgba(236, 72, 153, 0.5),
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 10px 28px rgba(20, 184, 166, 0.5),
                   inset 0 1px 0 rgba(255, 255, 255, 0.3);
     }
 
     .btn-upload:active {
-      transform: translateY(-2px) scale(0.98);
+      transform: translateY(-1px) scale(0.98);
     }
 
     .spinner-border-sm {
-      width: 1.2rem;
-      height: 1.2rem;
-      border-width: 0.2em;
+      width: 1rem;
+      height: 1rem;
+      border-width: 0.15em;
     }
 
     /* Footer Styling */
     .footer-text {
       background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(10px);
-      padding: 1rem 2rem;
+      padding: 0.75rem 1.5rem;
       border-radius: 50px;
       border: 2px solid rgba(255, 255, 255, 0.2);
       display: inline-block;
@@ -936,11 +940,11 @@
     /* Responsive Design */
     @media (max-width: 768px) {
       .header-section h1 {
-        font-size: 2.25rem;
+        font-size: 1.65rem;
       }
       
       .card-body-custom {
-        padding: 1.75rem;
+        padding: 1.35rem;
       }
 
       .radio-group {
@@ -948,12 +952,12 @@
       }
 
       .btn-analyze {
-        padding: 1rem 2rem;
-        font-size: 1.1rem;
+        padding: 0.8rem 1.75rem;
+        font-size: 0.95rem;
       }
 
       .result-title {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
       }
 
       .particle {
@@ -963,7 +967,7 @@
 
     @media (max-width: 576px) {
       .header-section h1 {
-        font-size: 1.75rem;
+        font-size: 1.35rem;
       }
 
       .main-container {
@@ -971,7 +975,7 @@
       }
 
       .card-body-custom {
-        padding: 1.25rem;
+        padding: 1rem;
       }
     }
   </style>
@@ -1164,17 +1168,17 @@
     </div>
 
     <!-- Premium Footer -->
-    <div class="text-center mt-5">
+    <div class="text-center mt-4">
       <div class="footer-text">
-        <p style="margin: 0; font-size: 1rem; font-weight: 600; color: white;">
+        <p style="margin: 0; font-size: 0.85rem; font-weight: 600; color: white;">
           <i class="fas fa-shield-alt"></i>
-          Powered by Machine Learning
-          <span style="margin: 0 0.5rem;">|</span>
+          Powered by ML
+          <span style="margin: 0 0.4rem;">|</span>
           <i class="fas fa-brain"></i>
-          Euphoria GenX Project
-          <span style="margin: 0 0.5rem;">|</span>
+          Euphoria GenX
+          <span style="margin: 0 0.4rem;">|</span>
           <i class="fas fa-lock"></i>
-          Secure & Trusted
+          Secure
         </p>
       </div>
     </div>
