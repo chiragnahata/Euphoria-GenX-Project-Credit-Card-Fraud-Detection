@@ -1,0 +1,55 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Fraud Demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script>
+    function onTypeChange() {
+      const t = document.querySelector('input[name="transaction_type"]:checked').value;
+      document.getElementById('distance_group').style.display = t==='offline' ? 'block':'none';
+      document.getElementById('device_group').style.display = t==='online' ? 'block':'none';
+    }
+    window.addEventListener('DOMContentLoaded', onTypeChange);
+  </script>
+</head>
+<body class="bg-light">
+<div class="container mt-4">
+  <div class="card p-4">
+    <h3>Credit Card Fraud Risk Predictor — Demo</h3>
+    <form action="/predict_single" method="post">
+      <div>Type:
+        <label><input type="radio" name="transaction_type" value="offline" checked onchange="onTypeChange()">Offline</label>
+        <label class="ms-2"><input type="radio" name="transaction_type" value="online" onchange="onTypeChange()">Online</label>
+      </div>
+      <div class="row mt-2">
+        <div class="col-md-4"><label>Amount (₹)</label><input class="form-control" name="amount" required></div>
+        <div class="col-md-4"><label>Time since last txn (minutes)</label><input class="form-control" name="time" required></div>
+        <div class="col-md-4"><label>Hour (0-23)</label><input class="form-control" name="hour" value="12"></div>
+        <div class="col-md-4"><label>Transactions in 24h</label><input class="form-control" name="frequency"></div>
+        <div class="col-md-4" id="distance_group"><label>Distance km</label><input class="form-control" name="distance_km"></div>
+        <div class="col-md-4" id="device_group" style="display:none"><label>Device/Location risk (0-1)</label><input class="form-control" name="device_loc_risk" value="0"></div>
+        <div class="col-md-4"><label>Merchant</label><select class="form-control" name="merchant"><option>Grocery</option><option>Online Shopping</option><option>Travel</option><option>Electronics</option><option>Others</option></select></div>
+      </div>
+      <button class="btn btn-primary mt-3 w-100" type="submit">Check Risk</button>
+    </form>
+
+    {% if result %}
+    <div class="alert mt-3 {{ 'alert-danger' if 'High' in result else 'alert-success' }}">
+      <h4>{{ result }}</h4>
+      <p>Probability: {{ probability }}</p>
+      <p>{{ advice }}</p>
+    </div>
+    {% endif %}
+
+    <hr>
+    <h5>Bulk CSV upload (bank-format)</h5>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+      <input type="file" name="file">
+      <button class="btn btn-secondary mt-2">Upload</button>
+    </form>
+  </div>
+</div>
+</body>
+</html>
