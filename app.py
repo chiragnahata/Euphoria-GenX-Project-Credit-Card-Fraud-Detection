@@ -34,10 +34,16 @@ def home():
 @app.route('/upload', methods=['POST'])
 def upload():
     f = request.files.get('file')
-    df = pd.read_csv(f)
+    if not f:
+        return render_template('index.html', csv_error="No file uploaded.")
+    try:
+        df = pd.read_csv(f)
+    except Exception as e:
+        return render_template('index.html', csv_error=f"Error reading CSV: {str(e)}")
     df_out, err = predict_df(df)
     if err:
-        return err, 400
+        return render_template('index.html', csv_error=err)
+    # Download the CSV
     output = io.StringIO()
     df_out.to_csv(output, index=False)
     output.seek(0)
