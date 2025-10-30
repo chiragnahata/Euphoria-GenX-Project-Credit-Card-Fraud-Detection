@@ -51,28 +51,46 @@ def predict_single():
     frequency = int(request.form.get('frequency',0))
     merchant = request.form.get('merchant','Others')
     hour_of_day = int(request.form.get('hour',12))
+    message = request.form.get('message', '')  # Get the message from form
+    
     if trans_type == 'online':
         device_loc_risk = float(request.form.get('device_loc_risk',0.0))
         distance_km = 0.0
     else:
         device_loc_risk = 0.0
         distance_km = float(request.form.get('distance_km',0.0))
+    
     user_input = {'amount': amount, 'time_minutes': time_min, 'frequency_24h': frequency,
                   'transaction_type': trans_type, 'distance_km': distance_km,
                   'device_loc_risk': device_loc_risk, 'merchant_type': merchant,
                   'hour_of_day': hour_of_day}
+    
     df_demo = demo_mapper(user_input, demo_feature_stats)
     df_demo[['Time','Amount']] = scaler.transform(df_demo[['Time','Amount']])
     prob = float(model.predict_proba(df_demo[['Time'] + [f'V{i}' for i in range(1,29)] + ['Amount']])[0,1])
+    
     label = "High Fraud Risk" if prob >= 0.6 else "Low Fraud Risk"
+    
+    # Calculate confidence level (how sure the model is)
+    # Confidence is high when probability is close to 0 or 1, low when close to 0.5
+    confidence_score = abs(prob - 0.5) * 2  # Normalize to 0-1 scale
+    confidence_percentage = f"{confidence_score * 100:.1f}%"
+    
     advice = ""
     if prob >= 0.85:
-        advice = "Block and contact bank."
+        advice = "⚠️ Critical Alert! Block this transaction immediately and contact the bank. High probability of fraudulent activity detected."
     elif prob >= 0.6:
-        advice = "Review and confirm."
+        advice = "⚠️ Warning! This transaction requires manual review and verification. Please confirm with the cardholder before processing."
     else:
-        advice = "Looks normal."
-    return render_template('index.html', result=label, probability=f"{prob*100:.2f}%", advice=advice, form_data=request.form)
+        advice = "✅ Transaction appears legitimate. Standard processing recommended, but continue monitoring for unusual patterns."
+    
+    return render_template('index.html', 
+                         result=label, 
+                         probability=f"{prob*100:.2f}%", 
+                         confidence=confidence_percentage,
+                         advice=advice, 
+                         message=message,
+                         form_data=request.form)
 
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0')

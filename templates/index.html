@@ -664,6 +664,15 @@
       font-size: 0.9rem;
     }
 
+    /* Confidence Bar Styles */
+    .high-risk-bar {
+      background: linear-gradient(90deg, #ef4444, #dc2626) !important;
+    }
+
+    .low-risk-bar {
+      background: linear-gradient(90deg, #22c55e, #16a34a) !important;
+    }
+
     .divider {
       height: 1px;
       background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
@@ -1096,6 +1105,14 @@
                 <option value="Others">Others</option>
               </select>
             </div>
+
+            <div class="col-12">
+              <label class="form-label">
+                <i class="fas fa-comment-alt input-icon"></i>
+                Additional Notes / Message (Optional)
+              </label>
+              <textarea class="form-control" name="message" rows="3" placeholder="Enter any additional information or notes about this transaction..." style="resize: vertical;"></textarea>
+            </div>
           </div>
 
           <!-- Submit Button -->
@@ -1125,7 +1142,30 @@
               <div class="result-stat-label">Risk Level</div>
               <div class="result-stat-value">{{ 'HIGH' if 'High' in result else 'LOW' }}</div>
             </div>
+            <div class="result-stat">
+              <div class="result-stat-label">Confidence Level</div>
+              <div class="result-stat-value">{{ confidence }}</div>
+            </div>
           </div>
+
+          <!-- Confidence Meter Visual -->
+          <div style="margin: 1.5rem 0;">
+            <div style="background: rgba(255, 255, 255, 0.2); border-radius: 10px; height: 30px; overflow: hidden; position: relative;">
+              <div class="{{ 'high-risk-bar' if 'High' in result else 'low-risk-bar' }}" style="height: 100%; width: {{ confidence }}; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.85rem; transition: width 1s ease-out;">
+                {{ confidence }} Sure
+              </div>
+            </div>
+          </div>
+
+          {% if message %}
+          <div class="result-advice" style="border-left-color: #6366f1;">
+            <strong>
+              <i class="fas fa-comment-dots"></i>
+              Your Message
+            </strong>
+            <div>{{ message }}</div>
+          </div>
+          {% endif %}
 
           <div class="result-advice">
             <strong>
