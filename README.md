@@ -35,28 +35,24 @@
       <a href="https://github.com/chiragnahata">
         <img src="https://github.com/chiragnahata.png" width="100px;" alt="Chirag Nahata"/><br />
         <sub><b>Chirag Nahata</b></sub><br />
-        <sub>Project Lead & ML Engineer</sub>
       </a>
     </td>
     <td align="center">
       <a href="https://github.com/snig-code16">
         <img src="https://github.com/snig-code16.png" width="100px;" alt="Snigdha Ghosh"/><br />
         <sub><b>Snigdha Ghosh</b></sub><br />
-        <sub>Backend Developer</sub>
       </a>
     </td>
     <td align="center">
       <a href="https://github.com/somyadipghosh">
         <img src="https://github.com/somyadipghosh.png" width="100px;" alt="Somyadip Ghosh"/><br />
         <sub><b>Somyadip Ghosh</b></sub><br />
-        <sub>Data Scientist</sub>
       </a>
     </td>
     <td align="center">
       <a href="https://github.com/Suryabhapal">
         <img src="https://github.com/Suryabhapal.png" width="100px;" alt="Surybha Pal"/><br />
         <sub><b>Surybha Pal</b></sub><br />
-        <sub>Frontend & UI/UX</sub>
       </a>
     </td>
   </tr>
@@ -66,7 +62,7 @@
   
   [![Contributors](https://img.shields.io/github/contributors/chiragnahata/Euphoria-GenX-Project-Credit-Card-Fraud-Detection?style=flat-square)](https://github.com/chiragnahata/Euphoria-GenX-Project-Credit-Card-Fraud-Detection/graphs/contributors)
   
-  *Part of the **Euphoria GenX Initiative** - Innovating for a Safer Financial Future*
+  *Part of the **Euphoria GenX *
   
 </div>
 
